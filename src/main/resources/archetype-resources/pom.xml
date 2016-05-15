@@ -97,7 +97,7 @@
 			<plugin>
 				<groupId>com.agapsys.plugins</groupId>
 				<artifactId>rcf-scanner-maven-plugin</artifactId>
-				<version>[0.1.0, 1.0.0)</version>
+				<version>0.1.0</version>
 				<executions>
 					<execution>
 						<goals><goal>create</goal></goals>
