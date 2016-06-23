@@ -33,7 +33,7 @@
         <dependency>
             <groupId>com.agapsys.libs</groupId>
             <artifactId>rcf</artifactId>
-            <version>[4.0.0, 5.0.0)</version>
+            <version>[5.0.0, 6.0.0)</version>
 			<scope>compile</scope>
         </dependency>
 

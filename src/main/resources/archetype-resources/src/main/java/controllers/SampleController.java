@@ -13,15 +13,15 @@ import javax.servlet.http.HttpServletRequest;
 
 @WebController("sample")
 public class SampleController extends Controller {
-	
+
 	@WebAction(httpMethods = HttpMethod.GET, mapping = "getObject", defaultAction = true)
 	public String getObject(HttpServletRequest req) {
 		return "Hello world!";
 	}
-	
+
 	@WebAction
 	public void get(HttpExchange exchange) throws IOException {
-		exchange.getResponse().getWriter().print("Hello world!");
-	} 
-	
+		exchange.getCoreResponse().getWriter().print("Hello world!");
+	}
+
 }
