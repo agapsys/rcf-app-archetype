@@ -32,7 +32,7 @@
 		<!-- Compile dependencies -->
         <dependency>
             <groupId>com.agapsys</groupId>
-            <artifactId>rcf</artifactId>
+            <artifactId>rcf-core</artifactId>
             <version>0.1.0</version>
 			<scope>compile</scope>
         </dependency>
