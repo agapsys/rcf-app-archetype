@@ -23,17 +23,17 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.agapsys.libs</groupId>
+			<groupId>com.agapsys</groupId>
 			<artifactId>embedded-servlet-container</artifactId>
-			<version>[0.1.0, 1.0.0)</version>
+			<version>0.1.0</version>
 			<scope>test</scope>
 		</dependency>
 
 		<!-- Compile dependencies -->
         <dependency>
-            <groupId>com.agapsys.libs</groupId>
+            <groupId>com.agapsys</groupId>
             <artifactId>rcf</artifactId>
-            <version>[5.0.0, 6.0.0)</version>
+            <version>0.1.0</version>
 			<scope>compile</scope>
         </dependency>
 
@@ -95,7 +95,7 @@
             </plugin>
 
 			<plugin>
-				<groupId>com.agapsys.plugins</groupId>
+				<groupId>com.agapsys</groupId>
 				<artifactId>rcf-scanner-maven-plugin</artifactId>
 				<version>0.1.0</version>
 				<executions>

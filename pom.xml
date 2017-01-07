@@ -19,12 +19,13 @@ limitations under the License.
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.agapsys.archetypes</groupId>
+	<groupId>com.agapsys</groupId>
 	<artifactId>rcf-app-archetype</artifactId>
-	<version>5.0.0</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<packaging>maven-archetype</packaging>
 
-	<name>rcf-app-archetype</name>
+	<name>REST Controller Framework (Application Archetype)</name>
+
 	<description>Basic application based on Agapsys REST Controller Framework</description>
 	<url>https://github.com/agapsys/rcf-app-archetype</url>
 
@@ -37,8 +38,8 @@ limitations under the License.
 
 	<developers>
 		<developer>
-			<name>Leandro Oliveira</name>
-			<email>leandro@agapsys.com</email>
+			<name>Agapsys Tecnologia Ltda-ME</name>
+			<email>contact@agapsys.com</email>
 			<organization>Agapsys Tecnologia Ltda-ME</organization>
 			<organizationUrl>http://www.agapsys.com</organizationUrl>
 		</developer>
