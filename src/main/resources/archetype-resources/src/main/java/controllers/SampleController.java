@@ -4,24 +4,24 @@
 package ${package}.controllers;
 
 import com.agapsys.rcf.Controller;
-import com.agapsys.rcf.HttpExchange;
 import com.agapsys.rcf.HttpMethod;
+import com.agapsys.rcf.HttpRequest;
+import com.agapsys.rcf.HttpResponse;
 import com.agapsys.rcf.WebAction;
 import com.agapsys.rcf.WebController;
 import java.io.IOException;
-import javax.servlet.http.HttpServletRequest;
 
 @WebController("sample")
 public class SampleController extends Controller {
 
-	@WebAction(httpMethods = HttpMethod.GET, mapping = "getObject", defaultAction = true)
-	public String getObject(HttpServletRequest req) {
+	@WebAction(httpMethods = HttpMethod.GET, mapping = "/getObject", defaultAction = true)
+	public String getObject(HttpRequest req) {
 		return "Hello world!";
 	}
 
 	@WebAction
-	public void get(HttpExchange exchange) throws IOException {
-		exchange.getCoreResponse().getWriter().print("Hello world!");
+	public void get(HttpRequest request, HttpResponse response) throws IOException {
+		response.getServletResponse().getWriter().print("Hello world!");
 	}
 
 }
