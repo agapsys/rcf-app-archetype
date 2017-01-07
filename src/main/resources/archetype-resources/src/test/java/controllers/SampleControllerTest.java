@@ -46,7 +46,7 @@ public class SampleControllerTest {
 		Assert.assertEquals(200, resp.getStatusCode());
 		Assert.assertEquals("${symbol_escape}"Hello world!${symbol_escape}"", resp.getContentString());
 
-        resp = sc.doRequest(new HttpGet("/sample"));
+        resp = sc.doRequest(new HttpGet("/sample/"));
 
 		Assert.assertEquals(200, resp.getStatusCode());
 		Assert.assertEquals("${symbol_escape}"Hello world!${symbol_escape}"", resp.getContentString());
