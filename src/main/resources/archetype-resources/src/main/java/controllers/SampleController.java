@@ -19,13 +19,13 @@ public class SampleController extends Controller {
         @WebAction(httpMethods = HttpMethod.GET, mapping = "/getObject"),
         @WebAction(httpMethods = HttpMethod.GET, mapping = "/")
     })
-	public String getObject(ActionRequest req) {
-		return "Hello world!";
-	}
+    public String getObject(ActionRequest req) {
+        return "Hello world!";
+    }
 
-	@WebAction
-	public void get(ActionRequest request, ActionResponse response) throws IOException {
-		response.getServletResponse().getWriter().print("Hello world!");
-	}
+    @WebAction
+    public void get(ActionRequest request, ActionResponse response) throws IOException {
+        response.getServletResponse().getWriter().print("Hello world!");
+    }
 
 }
