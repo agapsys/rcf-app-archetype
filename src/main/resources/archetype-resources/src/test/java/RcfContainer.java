@@ -19,20 +19,43 @@
 
 package ${package};
 
+import com.agapsys.jee.TestingServletContainer;
 import com.agapsys.rcf.Controller;
 import com.agapsys.rcf.ControllerRegistrationListener;
 import com.agapsys.rcf.WebController;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 
 /**
- *    Utility class to generate container with controllers
+ * Utility class to generate container with controllers
  */
-public class ServletContainerBuilder extends com.agapsys.sevlet.container.ServletContainerBuilder {
+public class RcfContainer<RC extends RcfContainer<RC>> extends TestingServletContainer<RC> {
 
-    public ServletContainerBuilder registerController(Class<? extends Controller> controllerClass, String name) {
-        return (ServletContainerBuilder) super.registerServlet(controllerClass, String.format("/%s/*", name));
+    public static RcfContainer<?> newInstance(Class<? extends HttpServlet>...servletsOrControllers) {
+        RcfContainer rc = new RcfContainer<>();
+
+        for (Class<? extends HttpServlet> servlet : servletsOrControllers) {
+
+            if (Controller.class.isAssignableFrom(servlet)) {
+                rc.registerController(servlet);
+
+                if (servlet.getAnnotation(WebServlet.class) != null) {
+                    rc.registerServlet(servlet);
+                }
+
+            } else {
+                rc.registerServlet(servlet);
+            }
+        }
+
+        return rc;
     }
 
-    public ServletContainerBuilder registerController(Class<? extends Controller> controllerClass) {
+    public RC registerController(Class<? extends Controller> controllerClass, String name) {
+        return (RC) super.registerServlet(controllerClass, String.format("/%s/*", name));
+    }
+
+    public RC registerController(Class<? extends Controller> controllerClass) {
         WebController annotation = controllerClass.getAnnotation(WebController.class);
 
         if (annotation == null)
@@ -43,9 +66,7 @@ public class ServletContainerBuilder extends com.agapsys.sevlet.container.Servle
         if (name.isEmpty())
             name = ControllerRegistrationListener.getDefaultMapping(controllerClass);
 
-        registerController(controllerClass, name);
-
-        return this;
+        return registerController(controllerClass, name);
     }
 
 }

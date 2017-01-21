@@ -3,10 +3,9 @@
 #set( $symbol_escape = '\' )
 package ${package}.controllers;
 
-import ${package}.ServletContainerBuilder;
+import ${package}.RcfContainer;
 import com.agapsys.http.HttpGet;
 import com.agapsys.http.HttpResponse;
-import com.agapsys.sevlet.container.ServletContainer;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,21 +13,20 @@ import org.junit.Test;
 
 public class SampleControllerTest {
 
-    private ServletContainer sc;
+    private RcfContainer sc;
     private HttpResponse.StringResponse resp;
 
     @Before
     public void before() {
-        sc = new ServletContainerBuilder()
-            .registerController(SampleController.class)
-            .build();
+        sc = RcfContainer.newInstance()
+            .registerController(SampleController.class);
 
-        sc.startServer();
+        sc.start();
     }
 
     @After
     public void after() {
-        sc.stopServer();
+        sc.stop();
     }
 
     @Test
